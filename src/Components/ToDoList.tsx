@@ -35,9 +35,7 @@ const ToDoList: FC<IProps>= (props) => {
         })
         const id: string = `${el.id}`
         const oldItem = JSON.parse(localStorage.getItem(id)  || '');
-        console.log("donehandler" + oldItem.done)
         oldItem.done = !oldItem.done;
-        console.log("donehandler" + oldItem.done)
         localStorage.setItem(id, JSON.stringify(oldItem));
         setToDoList(newToDo);
     }

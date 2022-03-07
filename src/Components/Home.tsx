@@ -2,6 +2,7 @@ import React, {useState, useEffect, FC } from 'react';
 import "../Styles/Home.css";
 import { v4 } from 'uuid';
 import ToDoList from './ToDoList';
+import Form from './Form';
 import { ToDoElement } from '../Types/ToDoElement'
 
 const Home: FC = () => {
@@ -17,7 +18,7 @@ const Home: FC = () => {
     setToDoes(initialstate);
   }, []);
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: any) : any => {
     event.preventDefault(); 
     if(form.id) {
       const idList = JSON.parse(localStorage.getItem('IdList')  || '[]');
@@ -31,7 +32,7 @@ const Home: FC = () => {
     setForm({title: '', description: '', deadline: '', done: false});
   }
 
-  const handleChange = (event: any)=> {
+  const handleChange = (event: any) : any=> {
       event.preventDefault();
       const { name, value } = event.target;
       const id = v4();
@@ -45,18 +46,7 @@ const Home: FC = () => {
 
   return (
     <>
-      <h4 className="main__header">what do you need to do?</h4>
-      <section className="form">
-        <form className="form__element" onSubmit={handleSubmit}>
-          <label>what to do?</label>
-          <input id="txtTodoItemToAdd" type="text" name="title" value={form.title} onChange={handleChange}/>
-          <label htmlFor="txtTodoDetail">elaborate on what to do:</label>
-          <input id="txtTodoDetail" type="text" name="description" value={form.description} onChange={handleChange}/>
-          <label htmlFor="txtTodoDeadline">when is the deadline?</label>
-          <input id="txtTodoDeadline" type="text" name="deadline" value={form.deadline} onChange={handleChange}/>
-          <button id="btnAddTodo" type="submit">post todo to todo-list</button>
-        </form>
-      </section>
+      <Form toDo={form} handleSubmit={handleSubmit} handleChange={handleChange}/>
       <ToDoList toDoes={toDoes}/>
     </>)
 }
