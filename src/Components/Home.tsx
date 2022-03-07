@@ -5,17 +5,16 @@ import ToDoList from './ToDoList';
 import { ToDoElement } from '../Types/ToDoElement'
 
 const Home: FC = () => {
-  const initialIdList = JSON.parse(localStorage.getItem('IdList')  || '[]');
-  const initialstate = initialIdList.map((el:string) => JSON.parse(localStorage.getItem(el) || ''));
   const [form, setForm] = useState<ToDoElement>({});
-  const [toDoes, setToDoes] = useState<ToDoElement[]>([initialstate]);
+  const [toDoes, setToDoes] = useState<ToDoElement[]>([]);
 
   useEffect(() => {
   }, [form, toDoes]);
   
   useEffect(() => {
-    const initial = initialstate
-    setToDoes(initial);
+    const initialIdList = JSON.parse(localStorage.getItem('IdList')  || '[]');
+    const initialstate = initialIdList.map((el:string) => JSON.parse(localStorage.getItem(el) || ''));
+    setToDoes(initialstate);
   }, []);
 
   const handleSubmit = (event: any) => {
