@@ -14,7 +14,8 @@ const Home: FC = () => {
   }, [form, toDoes]);
   
   useEffect(() => {
-    setToDoes(initialstate);
+    const initial = initialstate
+    setToDoes(initial);
   }, []);
 
   const handleSubmit = (event: any) => {
