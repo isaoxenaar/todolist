@@ -33,6 +33,10 @@ const ToDoList: FC<IProps>= (props) => {
                 toDo.done ? toDo.done = false : toDo.done = true;
             return toDo;
         })
+        const id: string = `${el.id}`
+        const oldItem = JSON.parse(localStorage.getItem(id)  || '');
+        oldItem.done = !oldItem.done;
+        localStorage.setItem(id, oldItem);   
         setToDoList(newToDo);
     }
 
