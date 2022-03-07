@@ -5,8 +5,10 @@ import ToDoList from './ToDoList';
 import { ToDoElement } from '../Types/ToDoElement'
 
 const Home: FC = () => {
+  const initialIdList = JSON.parse(localStorage.getItem('IdList')  || '[]');
+  const initialstate = initialIdList.map((el:string) => JSON.parse(localStorage.getItem(el) || ''));
   const [form, setForm] = useState<ToDoElement>({});
-  const [toDoes, setToDoes] = useState<ToDoElement[]>([]);
+  const [toDoes, setToDoes] = useState<ToDoElement[]>([initialstate]);
 
   useEffect(() => {
   }, [form, toDoes]);
@@ -17,8 +19,10 @@ const Home: FC = () => {
       const idList = JSON.parse(localStorage.getItem('IdList')  || '[]');
       idList.push(form.id);
       localStorage.setItem('IdList', JSON.stringify(idList));
-      const current = toDoes.filter(x => idList.includes(x.id));
-      setToDoes(() => ([...current, form]));
+      localStorage.setItem(form.id, JSON.stringify(form));
+      const idList2 = JSON.parse(localStorage.getItem('IdList')  || '[]');
+      const objects = idList2.map((x:string) => JSON.parse(localStorage.getItem(x) || ''));
+      setToDoes(() => ([...objects]));
     } 
     console.log("in handlesubmit" + form.id);                    
     setForm({title: '', description: '', deadline: '', done: false});
@@ -39,7 +43,6 @@ const Home: FC = () => {
 
   return (
     <>
-      {/* <Form toDo={form} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
       <h4 className="main__header">what do you need to do?</h4>
       <section className="form">
         <form className="form__element" onSubmit={handleSubmit}>
