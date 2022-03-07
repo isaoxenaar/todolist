@@ -45,7 +45,6 @@ const Home: FC = () => {
 
   return (
     <>
-      {/* <Form toDo={form} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
       <h4 className="main__header">what do you need to do?</h4>
       <section className="form">
         <form className="form__element" onSubmit={handleSubmit}>
