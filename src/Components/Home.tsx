@@ -11,7 +11,13 @@ const Home: FC = () => {
   const [toDoes, setToDoes] = useState<ToDoElement[]>([initialstate]);
 
   useEffect(() => {
+    console.log("hello" + toDoes[0])
   }, [form, toDoes]);
+  
+  useEffect(() => {
+    console.log("hello 2" + toDoes[0])
+    setToDoes(initialstate);
+  }, []);
 
   const handleSubmit = (event: any) => {
     event.preventDefault(); 
@@ -20,8 +26,12 @@ const Home: FC = () => {
       idList.push(form.id);
       localStorage.setItem('IdList', JSON.stringify(idList));
       localStorage.setItem(form.id, JSON.stringify(form));
+      console.log("this is local" + localStorage);
+      const current = toDoes.filter(x => idList.includes(x.id));
       const idList2 = JSON.parse(localStorage.getItem('IdList')  || '[]');
+      console.log("idlist2" + idList2);
       const objects = idList2.map((x:string) => JSON.parse(localStorage.getItem(x) || ''));
+      console.log("object" + objects.length);
       setToDoes(() => ([...objects]));
     } 
     console.log("in handlesubmit" + form.id);                    
@@ -43,6 +53,7 @@ const Home: FC = () => {
 
   return (
     <>
+      {/* <Form toDo={form} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
       <h4 className="main__header">what do you need to do?</h4>
       <section className="form">
         <form className="form__element" onSubmit={handleSubmit}>
