@@ -11,11 +11,9 @@ const Home: FC = () => {
   const [toDoes, setToDoes] = useState<ToDoElement[]>([initialstate]);
 
   useEffect(() => {
-    console.log("hello" + toDoes[0])
   }, [form, toDoes]);
   
   useEffect(() => {
-    console.log("hello 2" + toDoes[0])
     setToDoes(initialstate);
   }, []);
 
@@ -26,22 +24,16 @@ const Home: FC = () => {
       idList.push(form.id);
       localStorage.setItem('IdList', JSON.stringify(idList));
       localStorage.setItem(form.id, JSON.stringify(form));
-      console.log("this is local" + localStorage);
-      const current = toDoes.filter(x => idList.includes(x.id));
       const idList2 = JSON.parse(localStorage.getItem('IdList')  || '[]');
-      console.log("idlist2" + idList2);
       const objects = idList2.map((x:string) => JSON.parse(localStorage.getItem(x) || ''));
-      console.log("object" + objects.length);
       setToDoes(() => ([...objects]));
     } 
-    console.log("in handlesubmit" + form.id);                    
     setForm({title: '', description: '', deadline: '', done: false});
   }
 
   const handleChange = (event: any)=> {
       event.preventDefault();
       const { name, value } = event.target;
-      console.log("in handleChange" + event.target);
       const id = v4();
       setForm(prev => ({
         ...prev,
