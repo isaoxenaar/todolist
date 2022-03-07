@@ -1,4 +1,4 @@
-interface ToDoElement {
+type ToDoElement =  {
     id?: string;
     title?: string;
     description?: string;

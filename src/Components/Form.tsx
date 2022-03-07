@@ -9,7 +9,6 @@ interface IProps {
 }
 
 const Form: FC<IProps> = (props) => {
-    const [form, setForm] = useState<ToDoElement>({});
     return(
     <section className="form">
     <form className="form__element" onSubmit={props.handleSubmit}>
