@@ -1,0 +1,45 @@
+.todo--notcompleted, .todo--completed {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    text-align: start;
+    border-radius: 5em;
+    padding: 1em 2em;
+    margin: 1em;
+    position: relative;
+    width: 80%;
+}
+.todo--notcompleted {
+    background-color:rgb(4, 46, 20);
+    background-image: url("https://media.istockphoto.com/photos/green-chalkboard-background-picture-id1150072676?k=20&m=1150072676&s=170667a&w=0&h=rXJox0Qx3Q16sxwyhXBTDczqb1NOeAs7rvh0Lhn_xrg=") ;
+    color:rgb(238, 238, 238);
+    order: 0;
+}
+.todo--notcompleted .cardTxt__deadline {
+    color: rgb(252, 255, 88);
+}
+.todo--completed {
+    background-color:rgb(36, 36, 36);
+    background-image: url("https://st2.depositphotos.com/1031174/5660/i/600/depositphotos_56604559-stock-photo-blackboard.jpg") ;
+    color:rgb(255, 234, 208);
+    order: 1;
+}
+.todo--completed .todo__buttons {
+    flex-flow: row wrap;
+}
+.todo--completed .cardTxt :not(h3, button) {
+    text-decoration: line-through;
+}
+.cardTxt__deadlineContainer {
+    display: flex;
+    flex-flow: row;
+    margin: 0;
+}
+.cardTxt__deadline {
+    color: rgb(202, 57, 0);
+    margin-right: 1em;
+    font-family: "Chalkduster", Fantasy, serif;
+}
+.cardTxt__title{
+    font-family: "Chalkduster", Fantasy, serif;
+}

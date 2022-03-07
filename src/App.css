@@ -1,0 +1,30 @@
+
+#root{
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  width:100%;
+}
+.header{
+color: rgb(253, 253, 253);
+font-size: calc(12px + 8vw);
+ text-align: center;
+ font-family: "Chalkduster", Fantasy, serif;
+ width:100%;
+}
+.main{
+  display:flex;
+  flex-flow: column;
+  align-items: center;
+  width:100%;
+  padding: 2em 2em;
+}
+.main__footer{
+ align-items: center;
+ color: white;
+}
+@media only screen and (min-width: 768px) {
+    .header{
+        font-size: 8vw;
+    }
+}

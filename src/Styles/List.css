@@ -1,0 +1,37 @@
+
+#todoList {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.todo__button--remove, .todo__button--toggle-completed{
+    border: none;
+    border-radius: 3em;
+    width:35%;
+    min-width: 180px;
+    padding: 1em 1em;
+    font-weight: bolder;
+}
+.todo__button--remove {
+    margin: 0em 1em;
+    background-color: rgb(255, 65, 17);
+    color: rgb(255, 234, 208);
+    font-size: calc(12px + 0.4vw );
+}
+.todo__button--toggle-completed{
+    margin: 0em 1.5em;
+    background-color: rgb(255, 234, 208);
+    color:rgb(255, 65, 17);
+    font-weight: bolder;
+    font-size: calc(11.5px + 0.4vw );
+}
+.todo--notcompleted .todo__button--toggle-completed {
+    background-color: rgb(156, 156, 156);
+    color:rgb(239, 255, 20);
+    
+}
+.todo--notcompleted .todo__button--remove {
+    display:none;
+}
