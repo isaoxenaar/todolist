@@ -2,7 +2,6 @@ import React, {useState, useEffect, FC } from 'react';
 import "../Styles/Home.css";
 import { v4 } from 'uuid';
 import ToDoList from './ToDoList';
-import Form from './Form';
 import { ToDoElement } from '../Types/ToDoElement'
 
 const Home: FC = () => {
