@@ -18,6 +18,20 @@ font-size: calc(12px + 8vw);
   align-items: center;
   width:100%;
   padding: 2em 2em;
+  z-index:0;
+  position: relative;
+}
+p {
+  flex-direction: row;
+  margin-left: 50vw;
+  z-index: 1;
+  position: absolute;
+  top: 100px;
+  left: 180px;
+  font-family: "Chalkduster", Fantasy, serif;
+  color:rgb(252, 255, 88);
+  font-size: calc(12px + 3vw);
+
 }
 .main__footer{
  align-items: center;

@@ -7,6 +7,7 @@ function App() {
     <>
       <header className="header">To Do List</header>
       <main className="main">
+      <p>free this     lady</p>
         <Home/>
       </main>
       <footer className="main__footer">
