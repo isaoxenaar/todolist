@@ -1,4 +1,4 @@
-import React, {useState, useEffect, FC } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import "../Styles/Home.css";
 import { v4 } from 'uuid';
 import ToDoList from './ToDoList';
@@ -19,7 +19,6 @@ const Home: FC = () => {
   }, []);
 
   const handleSubmit = (event: any) : any => {
-    
     event.preventDefault(); 
 
     if(form.id) {
@@ -37,10 +36,9 @@ const Home: FC = () => {
 
   const handleChange = (event: any) : any=> {
       event.preventDefault();
-      
+
       const { name, value } = event.target;
       const id = v4();
-      
       setForm(prev => ({
         ...prev,
         [name]: value,
@@ -51,6 +49,7 @@ const Home: FC = () => {
 
   return (
     <>
+      <h4 className="main__header">what do you need to do?</h4>
       <Form toDo={form} handleSubmit={handleSubmit} handleChange={handleChange}/>
       <ToDoList toDoes={toDoes}/>
     </>)

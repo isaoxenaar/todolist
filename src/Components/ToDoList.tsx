@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect} from 'react';
 import '../Styles/List.css';
+import { v4 } from 'uuid';
 import Card from './ToDoCard';
 import { ToDoElement } from '../Types/ToDoElement'
 
@@ -21,24 +22,24 @@ const ToDoList: FC<IProps>= (props) => {
     const removeHandler = (id: string | undefined | null) : any => {
         const oldList = JSON.parse(localStorage.getItem('IdList')  || '[]');
         const newList = oldList.filter((x:string) => x !== id);
-        const newToDo = toDoList.filter((toDo:ToDoElement) => toDo.id !== id);        
-
         localStorage.setItem('IdList', JSON.stringify(newList));
+        
+        const newToDo = toDoList.filter((toDo:ToDoElement) => toDo.id !== id);        
         setToDoList(newToDo);
     }
 
     const doneHandler = (el: ToDoElement) : any => {
-        const id: string = `${el.id}`;
-        
-        const oldItem = JSON.parse(localStorage.getItem(id)  || '');
-        oldItem.done = !oldItem.done;
-        localStorage.setItem(id, JSON.stringify(oldItem));
+        const id: string = `${el.id}`
 
         const newToDo = toDoList.map(toDo => {
             if(toDo.id === id) 
                 toDo.done ? toDo.done = false : toDo.done = true;
             return toDo;
         })
+        
+        const oldItem = JSON.parse(localStorage.getItem(id)  || '');
+        oldItem.done = !oldItem.done;
+        localStorage.setItem(id, JSON.stringify(oldItem));        
         setToDoList(newToDo);
     }
 
@@ -46,10 +47,10 @@ const ToDoList: FC<IProps>= (props) => {
     <section id="todoList">
         {toDoList.map(el => {
             if(el.id === '')
-                return <article></article>
-            return <article className={el.done ?  "todo--completed" : "todo--notcompleted"} id={el.id}>
+                return <section id={v4()}></section>
+            return <section className={el.done? "todo--completed" : "todo--notcompleted"} id={el.id}>
                         <Card removeHandler={removeHandler} doneHandler={doneHandler} toDo={el}/>
-                </article>            
+                </section>            
             }
         )}
     </section>)
