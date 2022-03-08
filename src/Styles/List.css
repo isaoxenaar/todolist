@@ -16,16 +16,20 @@
 }
 .todo__button--remove {
     margin: 0em 1em;
-    background-color: rgb(255, 65, 17);
     color: rgb(255, 234, 208);
-    font-size: calc(12px + 0.4vw );
+    background-color: rgb(255, 65, 17);
+    font-family: "Chalkduster", Fantasy, serif;
+    font-size: calc(12px + 1vw );
+    letter-spacing: 0.3em;
+    /* text-decoration: underline; */
+    line-height: 1em;
 }
 .todo__button--toggle-completed{
     margin: 0em 1.5em;
     background-color: rgb(255, 234, 208);
     color:rgb(255, 65, 17);
     font-weight: bolder;
-    font-size: calc(11.5px + 0.4vw );
+    font-size: calc(12px + 0.4vw);
 }
 .todo--notcompleted .todo__button--toggle-completed {
     background-color: rgb(156, 156, 156);

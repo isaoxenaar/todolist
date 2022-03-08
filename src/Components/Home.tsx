@@ -19,14 +19,17 @@ const Home: FC = () => {
   }, []);
 
   const handleSubmit = (event: any) : any => {
+    
     event.preventDefault(); 
+
     if(form.id) {
       const idList = JSON.parse(localStorage.getItem('IdList')  || '[]');
       idList.push(form.id);
       localStorage.setItem('IdList', JSON.stringify(idList));
       localStorage.setItem(form.id, JSON.stringify(form));
-      const idList2 = JSON.parse(localStorage.getItem('IdList')  || '[]');
-      const objects = idList2.map((x:string) => JSON.parse(localStorage.getItem(x) || ''));
+      
+      const newIdList = JSON.parse(localStorage.getItem('IdList')  || '[]');
+      const objects = newIdList.map((x:string) => JSON.parse(localStorage.getItem(x) || ''));
       setToDoes(() => ([...objects]));
     } 
     setForm({title: '', description: '', deadline: '', done: false});
@@ -34,8 +37,10 @@ const Home: FC = () => {
 
   const handleChange = (event: any) : any=> {
       event.preventDefault();
+      
       const { name, value } = event.target;
       const id = v4();
+      
       setForm(prev => ({
         ...prev,
         [name]: value,

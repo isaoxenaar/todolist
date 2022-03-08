@@ -10,7 +10,7 @@ interface IProps {
 
 const Card: FC<IProps>  = (props) => {
     return (
-        <article className="cardTxt">
+        <section className="cardTxt">
           <h2 className="cardTxt__title">{props.toDo.title}</h2>
           <h4 className="cardTxt__description">{props.toDo.description}</h4>
           <h3 className="cardTxt__deadlineContainer">
@@ -21,6 +21,6 @@ const Card: FC<IProps>  = (props) => {
               <button className="todo__button--toggle-completed" onClick={() => props.doneHandler(props.toDo)}>{props.toDo.done? "Not done yet..." : "Done!"}</button>
               <button className="todo__button--remove" onClick={() => props.removeHandler(props.toDo.id)}>delete this todo</button>
           </section>  
-        </article>)
+        </section>)
 }
 export default Card

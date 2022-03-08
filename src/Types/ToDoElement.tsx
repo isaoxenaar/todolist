@@ -7,3 +7,4 @@ type ToDoElement =  {
 }
 
 export type { ToDoElement };
+//order by deadline, has to be a date.
