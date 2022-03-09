@@ -20,7 +20,6 @@ const ToDoList: FC<IProps>= (props) => {
     }, [toDoList]);
 
     const removeHandler = (id: string | undefined | null) : any => {
-        const Id: string = `${id}`
         const oldList = JSON.parse(localStorage.getItem('IdList')  || '[]');
         const newList = oldList.filter((x:string) => x !== id);
         localStorage.setItem('IdList', JSON.stringify(newList));
