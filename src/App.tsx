@@ -11,7 +11,7 @@ function App() {
         <Home/>
       </main>
       <footer className="main__footer">
-      drawing made by Adonna Khare. this was made in march 2022. 
+     this was made in march 2022. 
       </footer>
     </>
   );
