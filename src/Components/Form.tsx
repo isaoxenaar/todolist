@@ -17,7 +17,7 @@ const Form: FC<IProps> = (props) => {
       <label htmlFor="txtTodoDetail">elaborate on what to do:</label>
       <input id="txtTodoDetail" type="text" name="description" value={props.toDo.description} onChange={props.handleChange}/>
       <label htmlFor="txtTodoDeadline">when is the deadline?</label>
-      <input id="txtTodoDeadline" type="text" name="deadline" value={props.toDo.deadline} onChange={props.handleChange}/>
+      <input id="txtTodoDeadline" type="text" name="deadline" placeholder="DD-MM-YYYY" value={props.toDo.deadline} onChange={props.handleChange}/>
       <button id="btnAddTodo" type="submit">post todo to todo-list</button>
     </form>
   </section>)
