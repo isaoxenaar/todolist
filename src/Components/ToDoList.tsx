@@ -8,8 +8,8 @@ interface IProps {
   toDoes: ToDoElement[]
 }
 
-const ToDoList: FC<IProps>= (props) => {
-    const arr: ToDoElement[] = props.toDoes;
+const ToDoList: FC<IProps>= ({toDoes}) => {
+    const arr: ToDoElement[] = toDoes;
     const [toDoList, setToDoList] = useState<ToDoElement[]>([]);
     
     useEffect(() => {

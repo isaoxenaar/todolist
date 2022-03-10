@@ -8,16 +8,16 @@ interface IProps {
     handleChange(event:any): any;
 }
 
-const Form: FC<IProps> = (props) => {
+const Form: FC<IProps> = ({toDo, handleSubmit, handleChange}) => {
     return(
     <section className="form">
-    <form className="form__element" onSubmit={props.handleSubmit}>
+    <form className="form__element" onSubmit={handleSubmit}>
       <label>what to do?</label>
-      <input id="txtTodoItemToAdd" type="text" name="title" value={props.toDo.title} onChange={props.handleChange}/>
+      <input id="txtTodoItemToAdd" type="text" name="title" value={toDo.title} onChange={handleChange}/>
       <label htmlFor="txtTodoDetail">elaborate on what to do:</label>
-      <input id="txtTodoDetail" type="text" name="description" value={props.toDo.description} onChange={props.handleChange}/>
+      <input id="txtTodoDetail" type="text" name="description" value={toDo.description} onChange={handleChange}/>
       <label htmlFor="txtTodoDeadline">when is the deadline?</label>
-      <input id="txtTodoDeadline" type="text" name="deadline" placeholder="DD-MM-YYYY" value={props.toDo.deadline} onChange={props.handleChange}/>
+      <input id="txtTodoDeadline" type="text" name="deadline" placeholder="DD-MM-YYYY" value={toDo.deadline} onChange={handleChange}/>
       <button id="btnAddTodo" type="submit">post todo to todo-list</button>
     </form>
   </section>)
